@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://v3.bootcss.com/examples/dashboard/ -->
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">
+
+    <title>添加作者</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/fontawesome/css/font-awesome.min.css">
+</head>
+
+<body>
+{% include 'nav.html' %}
+<div class="container" style="margin-top: 70px">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">添加作者</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" action="/author_add/" method="post">
+                        <div class="form-group">
+                            <label for="author_name" class="col-sm-2 control-label">作者名称</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="author_name" name="author_name" placeholder="书名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="books" class="col-sm-2 control-label">作品</label>
+                            <div class="col-sm-10">
+                                <select multiple name="books" class="form-control">
+                                    {% for i in book_list %}
+                                        <option value="{{ i.id }}">{{ i.title }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
